@@ -131,10 +131,10 @@ function setActiveTab() {
 
   /* temp - only for the demo since the adventures landing page is the "home page"
   */
-  if (!path) {
+  /*if (!path) {
     const adventureTab = navTabLinks.querySelector('a[title="Adventures"],a[title="adventures"]');
     adventureTab.classList.add('active');
-  }
+  }*/
 }
 
 /**
@@ -180,8 +180,8 @@ export default async function decorate(block) {
   }
 
   const navTools = nav.querySelector('.nav-tools');
-
-  /** Mini Cart */
+  /*
+  /!** Mini Cart *!/
   const minicart = document.createRange().createContextualFragment(`
     <div class="minicart-wrapper">
       <button type="button" class="button nav-cart-button"></button>
@@ -224,7 +224,7 @@ export default async function decorate(block) {
     }
   }, { eager: true });
 
-  /** Search */
+  // Search
   const search = document.createRange().createContextualFragment(`
   <div class="search-wrapper">
     <button type="button" class="button nav-search-button">Search</button>
@@ -265,7 +265,7 @@ export default async function decorate(block) {
       toggleSearch(false);
     }
   });
-
+  */
   // hamburger for mobile
   const hamburger = document.createElement('div');
   hamburger.classList.add('nav-hamburger');

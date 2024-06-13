@@ -1,7 +1,7 @@
 main .hero-container > div {
   max-width: 100%;
 }
-  
+
 main .hero-container {
   padding: 0;
   margin-bottom: 2rem;
@@ -10,7 +10,19 @@ main .hero-container {
 .hero {
   position: relative;
   padding: 32px;
-  min-height: 300px;
+  min-height: calc(100vh - 60px);
+
+  &::after {
+    background: linear-gradient(to top, transparent, rgba(0, 0, 0, .4));
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+  }
 }
 
 .hero picture {

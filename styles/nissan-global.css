@@ -1,3 +1,13 @@
+main {
+    margin-top: 0;
+}
+header {
+    height: unset;
+}
+header nav .section > div {
+    max-width: unset;
+    margin: unset;
+}
 footer .footer {
     & .wrapper {
         display: block;

@@ -11,11 +11,11 @@
  * OF ANY KIND, either express or implied. See the License for the specific language
  * governing permissions and limitations under the License.
  */
- 
+
 
  :root,
  .dropin-design.dropin-design {
-  /* Font Family  */ 
+  /* Font Family  */
   --heading-font-family: 'Source Serif Pro', 'Source-Serif-Pro-Fallback', sans-serif;
   --type-base-font-family: 'Source Sans Pro', roboto, roboto-fallback, sans-serif;
 
@@ -36,12 +36,12 @@
   --heading-font-size-xxl: 40px;
 
   /* Elsie base design */
-  --color-brand-300: #F5E96D; 
+  --color-brand-300: #F5E96D;
   --color-brand-500: #FFEA00;
-  --color-brand-600: #FFE600; 
-  --color-brand-700: #F7D522; 
+  --color-brand-600: #FFE600;
+  --color-brand-700: #F7D522;
   --color-black-100: #000;
-  --color-black-200: #202020; 
+  --color-black-200: #202020;
   --color-neutral-50: #fff;
   --color-neutral-100: #fafafa;
   --color-neutral-200: #f5f5f5;
@@ -212,12 +212,12 @@ header {
 /* Need to adjust main because of positioning of the fixed header */
 main {
   margin-top: 105px;
-} 
+}
 
 @media (width < 768px) {
   main {
     margin-top: 40px;
-  } 
+  }
 }
 
 h1 {
@@ -621,12 +621,12 @@ main .section.section-title .default-content-wrapper:first-of-type p::after {
   --background-none: none 0 0% no-repeat padding-box;
 }
 
-/* Global PDP columns overrides */ 
+/* Global PDP columns overrides */
 @media (width >= 1024px) {
   .dropin-design .pdp-product .pdp-product__gallery-column {
     grid-column: 1 / span 7;
   }
-  
+
   .dropin-design .pdp-product .pdp-product__content-column {
     grid-column: 8 / span 5;
   }
@@ -678,7 +678,7 @@ main .section.section-title .default-content-wrapper:first-of-type p::after {
 }
 
 .dropin-design .dropin-button--tertiary:hover,
-.dropin-design a.dropin-button--tertiary:hover, 
+.dropin-design a.dropin-button--tertiary:hover,
 .dropin-design .dropin-iconButton--tertiary:hover {
   color: var(--color-neutral-700);
 }
