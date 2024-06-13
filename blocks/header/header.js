@@ -131,10 +131,10 @@ function setActiveTab() {
 
   /* temp - only for the demo since the adventures landing page is the "home page"
   */
-  /*if (!path) {
+  /* if (!path) {
     const adventureTab = navTabLinks.querySelector('a[title="Adventures"],a[title="adventures"]');
     adventureTab.classList.add('active');
-  }*/
+  } */
 }
 
 /**
@@ -150,6 +150,11 @@ export default async function decorate(block) {
   // decorate nav DOM
   const nav = document.createElement('nav');
   nav.id = 'nav';
+
+  if (!fragment) {
+    return;
+  }
+
   while (fragment.firstElementChild) nav.append(fragment.firstElementChild);
 
   const classes = ['brand', 'sections', 'tools'];
