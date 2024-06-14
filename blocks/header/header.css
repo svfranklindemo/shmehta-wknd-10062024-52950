@@ -247,7 +247,8 @@ header nav .nav-sections ul > li > a {
 header nav .nav-sections ul > li > a.active,
 header nav .nav-sections ul > li > a:hover {
   text-decoration: none;
-  background-color: var(--color-neutral-200);
+  background-color: unset;
+  color: #ccc !important;
 }
 
 @media (width >= 900px) {
@@ -271,7 +272,7 @@ header nav .nav-sections ul > li > a:hover {
     content: '';
     display: inline-block;
     position: absolute;
-    top: 0.4rem;
+    top: 0.6rem;
     right: 0.2rem;
     transform: rotate(135deg);
     width: 0.6rem;
@@ -325,8 +326,9 @@ header nav .nav-sections ul > li > a:hover {
     width: 200px;
     margin-top: 12px;
     padding: 1em;
-    background-color: var(--color-neutral-500);
+    background-color: white;
     white-space: initial;
+    color: #000;
   }
 
   header nav .nav-sections .default-content-wrapper > ul > li > ul::before {
