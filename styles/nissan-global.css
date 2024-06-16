@@ -1,16 +1,21 @@
+
 main {
     margin-top: 0;
 }
+
 header {
     height: unset;
 }
+
 header nav .section > div {
     max-width: unset;
     margin: unset;
+
     & > ul > li {
         font-size: var(--body-font-size-xs);
     }
 }
+
 .hero-desc-wrapper {
     padding: 20px;
     text-align: center;
@@ -24,8 +29,8 @@ header nav .section > div {
     font-size: 2.5em;
     margin: 10px 0;
 }
-.hero-container.nissan-hero-content,
 
+.hero-container.nissan-hero-content,
 .hero-container.nissan-hero-section {
     margin-bottom: 0;
 }
@@ -37,7 +42,7 @@ header nav .section > div {
         color: #fff;
 
         padding: 0;
-        top:0;
+        top: 0;
         bottom: 0;
 
         display: flex;
@@ -47,6 +52,7 @@ header nav .section > div {
         & h3 {
             margin: 70px 0 0 85px;
         }
+
         & p, & p:first-of-type {
 
             display: flex;
@@ -149,6 +155,7 @@ footer .footer {
     & .wrapper {
         display: block;
     }
+
     & .heading-list .columns.block {
         & > div {
             display: flex;
@@ -223,9 +230,85 @@ footer .footer {
         }
     }
 
-    & .col-copyright-2-4 .columns.block > div > div:nth-child(2){
+    & .col-copyright-2-4 .columns.block > div > div:nth-child(2) {
         & ul > li:nth-child(4) {
             font-weight: bold;
+        }
+    }
+}
+
+.nissan-single-block {
+
+    & > .columns-wrapper {
+        max-width: 1500px;
+        padding-bottom: 100px;
+        padding-top: 100px;
+
+        & h2 {
+            font-weight: 700;
+            letter-spacing: 2px;
+            line-height: 26px;
+            font-size: 16px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        & h3 {
+            font-weight: 400;
+            letter-spacing: 1.5px;
+            text-transform: none;
+            font-size: 42px;
+            line-height: 52px;
+            margin-bottom: 40px;
+        }
+
+        & p {
+            font-family: var(--type-light-font-family);
+        }
+
+        & .columns-2-cols > div {
+            gap: 64px;
+        }
+
+        & .button-container {
+            & strong {
+                & > a:link, & >  a:visited, & > a:hover {
+                    background: #000;
+                    order: 0;
+                    padding: 12px 30px;
+                    width: auto;
+                    color: #fff;
+                    text-decoration: none;
+                    border-radius: 40px;
+                    display: inline-block;
+                    font-family: "Nissan Bold", Verdana, Arial, sans-serif;
+                    font-size: 16px;
+                    letter-spacing: 2px;
+                    line-height: 24px;
+                }
+            }
+            & em {
+                & > a:link, & >  a:visited, & > a:hover {
+                    font-family: "Nissan Bold", "Nissan Regular", Verdana, Arial, sans-serif;
+                    font-size: 1.75rem;
+                    font-weight: 700;
+                    letter-spacing: 1.9px;
+                    line-height: inherit;
+                    color: #000;
+                    border: none;
+
+                    display: flex;
+                    align-items: center;
+                    gap: 20px;
+
+                    text-decoration: none;
+
+                    & > .icon {
+                        width: 48px;
+                        height: 48px;
+                    }
+                }
+            }
         }
     }
 }
