@@ -87,14 +87,14 @@ header nav .section > div {
         background: linear-gradient(0deg, #000, #000 68%, rgba(0, 0, 0, 0.0001));
         color: #fff;
 
-        #prices-from-28495 {
+        & h1 {
             grid-area: price;
             font-size: 1.5em;
             justify-self: start;
             align-self: end;
         }
 
-        #nissan-leaf-the-electric-family-car {
+        & h5 {
             grid-area: title;
             font-size: 2.5em;
             margin: 10px 0;
@@ -269,46 +269,153 @@ footer .footer {
         & .columns-2-cols > div {
             gap: 64px;
         }
+    }
+}
 
-        & .button-container {
-            & strong {
-                & > a:link, & >  a:visited, & > a:hover {
-                    background: #000;
-                    order: 0;
-                    padding: 12px 30px;
-                    width: auto;
-                    color: #fff;
-                    text-decoration: none;
-                    border-radius: 40px;
-                    display: inline-block;
-                    font-family: "Nissan Bold", Verdana, Arial, sans-serif;
-                    font-size: 16px;
-                    letter-spacing: 2px;
-                    line-height: 24px;
-                }
-            }
-            & em {
-                & > a:link, & >  a:visited, & > a:hover {
-                    font-family: "Nissan Bold", "Nissan Regular", Verdana, Arial, sans-serif;
-                    font-size: 1.75rem;
-                    font-weight: 700;
-                    letter-spacing: 1.9px;
-                    line-height: inherit;
-                    color: #000;
-                    border: none;
+.button-container {
+    & strong {
+        & > a:link, & >  a:visited, & > a:hover {
+            background: #000;
+            order: 0;
+            padding: 12px 30px;
+            width: auto;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 40px;
+            display: inline-block;
+            font-family: "Nissan Bold", Verdana, Arial, sans-serif;
+            font-size: 16px;
+            letter-spacing: 2px;
+            line-height: 24px;
+        }
+    }
+    & em {
+        & > a:link, & >  a:visited, & > a:hover {
+            font-family: "Nissan Bold", "Nissan Regular", Verdana, Arial, sans-serif;
+            font-size: 1.75rem;
+            font-weight: 700;
+            letter-spacing: 1.9px;
+            line-height: inherit;
+            color: #000;
+            border: none;
 
-                    display: flex;
-                    align-items: center;
-                    gap: 20px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
 
-                    text-decoration: none;
+            text-decoration: none;
 
-                    & > .icon {
-                        width: 48px;
-                        height: 48px;
-                    }
-                }
+            & > .icon {
+                width: 48px;
+                height: 48px;
             }
         }
     }
 }
+
+main .section.nissan-offer-section {
+    background: #e5e5e5;
+    min-height: 100vh;
+    padding-top: 120px;
+    padding-bottom: 120px;
+    box-sizing: border-box;
+
+    & .default-content-wrapper, & .offer-wrapper {
+        max-width: 1500px;
+        padding-left: 0;
+        padding-right: 0;
+        margin: auto;
+    }
+
+
+    & > div {
+        max-width: 1500px;
+        width: 100%;
+        margin: auto;
+    }
+
+    .button-container {
+        margin-top: 100px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    & p {
+        font-family: "Nissan Regular", Verdana, Arial, sans-serif;
+        font-size: 16px;
+        font-weight: 400;
+        letter-spacing: .9px;
+        line-height: 26px;
+        text-transform: none;
+
+        margin: 0 0 8px 0;
+    }
+
+    & h2 {
+        font-family: "Nissan Regular", Verdana, Arial, sans-serif;
+        font-weight: 400;
+        letter-spacing: 1.5px;
+        text-transform: none;
+
+        font-size: 42px;
+        line-height: 52px;
+
+        margin-bottom: 60px;
+
+        &::after {
+            display: none;
+        }
+    }
+}
+
+main .section.nissan-faq-block {
+    background: #e5e5e5;
+    padding-bottom: 120px;
+    box-sizing: border-box;
+
+    & h2 {
+        padding: 80px 0;
+        font-family: "Nissan Regular", Verdana, Arial, sans-serif;
+        font-size: 68px;
+        letter-spacing: 2.43px;
+        line-height: 1.15;
+
+        &::after {
+            display: none;
+        }
+    }
+
+
+    & .accordion-wrapper {
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+    & .accordion-item-label {
+        border-color: #020a0d;
+        & > p {
+            font-family: "Nissan Bold", Verdana, Arial, sans-serif;
+            font-weight: 700;
+            font-size: 16px;
+            letter-spacing: 1.5px;
+            line-height: 26px;
+            margin-bottom: 0;
+        }
+    }
+
+    & .accordion details[open] .accordion-item-body, & .accordion-item-body {
+        background-color: transparent;
+        & > p {
+            font-family: "Nissan Light", Verdana, Arial, sans-serif;
+            font-size: 16px;
+            font-weight: 300;
+            letter-spacing: 1.5px;
+            line-height: 24px;
+            margin-bottom: 0 !important;
+            overflow-wrap: break-word !important;
+            text-transform: none;
+        }
+    }
+}
+

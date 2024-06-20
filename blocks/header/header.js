@@ -1,13 +1,13 @@
 /* eslint-disable import/no-unresolved */
 /* eslint-disable import/no-extraneous-dependencies */
 // Drop-in Providers
-import { render as cartProvider } from '@dropins/storefront-cart/render.js';
+// import { render as cartProvider } from '@dropins/storefront-cart/render.js';
 
 // Drop-in Containers
-import MiniCart from '@dropins/storefront-cart/containers/MiniCart.js';
+// import MiniCart from '@dropins/storefront-cart/containers/MiniCart.js';
 
 // Drop-in Tools
-import { events } from '@dropins/tools/event-bus.js';
+// import { events } from '@dropins/tools/event-bus.js';
 import { getMetadata } from '../../scripts/aem.js';
 import { loadFragment } from '../fragment/fragment.js';
 
