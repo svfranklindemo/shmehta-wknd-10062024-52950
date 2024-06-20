@@ -7,7 +7,17 @@ const TIMEOUT = 10000; // 10 seconds
 const tokenData = {
   accessToken: null,
   validUntil: 0,
+  fetchPromise: null,
 };
+
+async function fetchNewToken() {
+  const response = await fetch('https://hook.app.workfrontfusion.com/f57qz9qxp04rlny3h97jwky9luukjgol');
+  const data = await response.json();
+  return {
+    accessToken: data.access_token,
+    validUntil: data.valid_until,
+  };
+}
 
 async function getAccessToken() {
   const now = Date.now();
@@ -17,13 +27,23 @@ async function getAccessToken() {
     return tokenData.accessToken;
   }
 
-  // Fetch a new token if the current one is expired or doesn't exist
-  const response = await fetch('https://hook.app.workfrontfusion.com/f57qz9qxp04rlny3h97jwky9luukjgol');
-  const data = await response.json();
+  // If a fetch request is already in progress, wait for it to complete
+  if (tokenData.fetchPromise) {
+    await tokenData.fetchPromise;
+  } else {
+    // Otherwise, initiate a new fetch request
+    tokenData.fetchPromise = fetchNewToken().then((data) => {
+      tokenData.accessToken = data.accessToken;
+      tokenData.validUntil = data.validUntil;
+      tokenData.fetchPromise = null; // Clear the fetch promise once done
+      return data.accessToken;
+    }).catch((error) => {
+      tokenData.fetchPromise = null; // Clear the fetch promise on error
+      throw error;
+    });
 
-  // Update token data
-  tokenData.accessToken = data.access_token;
-  tokenData.validUntil = data.valid_until;
+    await tokenData.fetchPromise;
+  }
 
   return tokenData.accessToken;
 }
