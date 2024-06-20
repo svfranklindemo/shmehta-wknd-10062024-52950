@@ -272,9 +272,9 @@ footer .footer {
     }
 }
 
-.button-container {
-    & strong {
-        & > a:link, & >  a:visited, & > a:hover {
+a.button {
+    &.primary {
+        &:link, &:visited, &:hover {
             background: #000;
             order: 0;
             padding: 12px 30px;
@@ -289,8 +289,8 @@ footer .footer {
             line-height: 24px;
         }
     }
-    & em {
-        & > a:link, & >  a:visited, & > a:hover {
+    &.secondary {
+        &:link, &:visited, &:hover {
             font-family: "Nissan Bold", "Nissan Regular", Verdana, Arial, sans-serif;
             font-size: 1.75rem;
             font-weight: 700;
