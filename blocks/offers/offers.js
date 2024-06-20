@@ -20,14 +20,17 @@ export default function decorate(block) {
           </div>
           <div class="wds-row">
               <div class="offer-detail-image wds-col-12">
-                <section class="apigeee-responsive-image-container maintain-aspect-ratio" id="wds-layout">
-                    <picture alt="NISSAN LEAF" class="responsive-image picture-container classic-offers-images vehicle-image">
-                        <source media="(min-width: 1440px)" srcset="https://www-europe.nissan-cdn.net/content/dam/Nissan/gb/vehicles/packshots/2023/leaf/LEAF_Shiro.jpg.ximg.l_6_m.smart.png, https://www-europe.nissan-cdn.net/content/dam/Nissan/gb/vehicles/packshots/2023/leaf/LEAF_Shiro.jpg.ximg.l_6_h.smart.png 2x"><source media="(min-width: 768px)" srcset="https://www-europe.nissan-cdn.net/content/dam/Nissan/gb/vehicles/packshots/2023/leaf/LEAF_Shiro.jpg.ximg.m_6_m.smart.png, https://www-europe.nissan-cdn.net/content/dam/Nissan/gb/vehicles/packshots/2023/leaf/LEAF_Shiro.jpg.ximg.m_6_h.smart.png 2x"><source srcset="https://www-europe.nissan-cdn.net/content/dam/Nissan/gb/vehicles/packshots/2023/leaf/LEAF_Shiro.jpg.ximg.s_12_m.smart.png, https://www-europe.nissan-cdn.net/content/dam/Nissan/gb/vehicles/packshots/2023/leaf/LEAF_Shiro.jpg.ximg.s_12_h.smart.png 2x"><img alt="NISSAN LEAF" class="responsive-image image-container classic-offers-images vehicle-image clickable" data-id="C18D.0_cmp_universalofferspromo-NGB013-vehicle-image" src="https://www-europe.nissan-cdn.net/content/dam/Nissan/gb/vehicles/packshots/2023/leaf/LEAF_Shiro.jpg.ximg.s_12_m.smart.png" tabindex="0"></picture>
-                        <p class="wds-type-body-regular-s image-disclaimer" data-id="C18D.0_cmp_universalofferspromo-NGB013-vehicle-disclaimer">Image shown for guidance purpose only.</p>
+                <section class="apigeee-responsive-image-container maintain-aspect-ratio">
+                    <picture alt="${offer?.model?.name}" class="responsive-image picture-container classic-offers-images vehicle-image">
+                        <source media="(min-width: 1440px)" srcset="${offer?.images?.detail?.largeStdRes}, ${offer?.images?.detail?.largeHiRes}">
+                        <source media="(min-width: 768px)" srcset="${offer?.images?.detail?.mediumStdRes}, ${offer?.images?.detail?.mediumHiRes}">
+                        <source srcset="${offer?.images?.detail?.smallStdRes}, ${offer?.images?.detail?.smallHiRes}">
+                        <img alt="${offer?.model?.name}" class="responsive-image image-container classic-offers-images vehicle-image clickable" src="${offer?.images?.detail?.smallStdRes}" tabindex="0"></picture>
+                        <p class="wds-type-body-regular-s image-disclaimer">${offer?.images?.detail?.disclaimer}</p>
                 </section>
               </div>
               <div class="wds-col-12">
-                  <a class="wds-type-subtitle-m classic-offer-cta" data-id="C18D.0_cmp_universalofferspromo-interaction-offer-cta-label-0" role="button" tabindex="0" data-di-id="di-id-1fbdf338-84ffa788"><span>Offer Details</span></a>
+                  <a class="wds-type-subtitle-m classic-offer-cta" role="button" tabindex="0" data-di-id="di-id-1fbdf338-84ffa788"><span>Offer Details</span></a>
               </div>
           </div>`;
       return divElement;
