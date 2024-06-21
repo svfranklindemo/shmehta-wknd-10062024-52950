@@ -1,11 +1,15 @@
 import { getOffer } from '../../scripts/nissan-services.js';
+import Modal from '../../scripts/offer-modal.js';
 
 export default function decorate(block) {
-  console.log(block);
   const fetchPromises = [...block.children].map((el) => getOffer(el.textContent.trim()));
-
+  const modal = new Modal();
+  const offers = {
+    allOffers: null,
+  };
   Promise.all(fetchPromises).then((allOffers) => {
-    const elOffers = allOffers.map((offer) => {
+    offers.allOffers = allOffers;
+    const elOffers = allOffers.map((offer, index) => {
       const divElement = document.createElement('div');
       divElement.className = 'offer-container';
       divElement.innerHTML = `<div class="top-section wds-row" style="height: 96px;">
@@ -30,14 +34,21 @@ export default function decorate(block) {
                 </section>
               </div>
               <div class="wds-col-12">
-                  <a class="wds-type-subtitle-m classic-offer-cta" role="button" tabindex="0" data-di-id="di-id-1fbdf338-84ffa788"><span>Offer Details</span></a>
+                  <a class="wds-type-subtitle-m classic-offer-cta" data-index="${index}" role="button" tabindex="0"><span>Offer Details</span></a>
               </div>
-          </div>`;
+          </div>
+          <div id="modal-container"></div>
+`;
       return divElement;
     });
 
     block.innerHTML = '';
     elOffers.forEach((elem) => block.append(elem));
+    document.querySelectorAll('a.wds-type-subtitle-m.classic-offer-cta').forEach((eachElem) => eachElem.addEventListener('click', (evt) => {
+      const dataIndex = parseInt(evt.currentTarget.getAttribute('data-index'), 10);
+      console.log('dataIndex: ', dataIndex);
+      modal.show({});
+    }));
   }).catch((error) => {
     block.innerHTML = '';
     console.error('There has been a problem with your fetch operation:', error);
