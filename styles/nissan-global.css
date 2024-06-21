@@ -419,3 +419,6 @@ main .section.nissan-faq-block {
     }
 }
 
+body.no-scroll {
+    overflow: hidden;
+}

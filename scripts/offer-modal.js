@@ -222,6 +222,8 @@ class Modal {
 
     this.modalContainer.appendChild(modal);
 
+    document.body.classList.add('no-scroll');
+
     // Trigger reflow to apply the initial styles before adding the show class
     // eslint-disable-next-line no-unused-expressions,no-void
     void modal.offsetWidth;
@@ -244,6 +246,7 @@ class Modal {
       if (modal.parentNode) {
         modal.parentNode.removeChild(modal);
       }
+      document.body.classList.remove('no-scroll');
     }, { once: true });
   }
 }
