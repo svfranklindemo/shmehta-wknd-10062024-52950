@@ -143,8 +143,8 @@ function setActiveTab() {
  */
 export default async function decorate(block) {
   // load nav as fragment
-  const navMeta = getMetadata('locale');
-  const navPath = navMeta ? new URL(navMeta).pathname : '/nav';
+  const prefix = getMetadata('locale');
+  const navPath = prefix ? `/${prefix}/nav` : '/nav';
   const fragment = await loadFragment(navPath);
 
   // decorate nav DOM
