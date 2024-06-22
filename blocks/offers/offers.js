@@ -29,8 +29,9 @@ export default function decorate(block) {
                         <source media="(min-width: 1440px)" srcset="${offer?.images?.detail?.largeStdRes}, ${offer?.images?.detail?.largeHiRes}">
                         <source media="(min-width: 768px)" srcset="${offer?.images?.detail?.mediumStdRes}, ${offer?.images?.detail?.mediumHiRes}">
                         <source srcset="${offer?.images?.detail?.smallStdRes}, ${offer?.images?.detail?.smallHiRes}">
-                        <img alt="${offer?.model?.name}" class="responsive-image image-container classic-offers-images vehicle-image clickable" src="${offer?.images?.detail?.smallStdRes}" tabindex="0"></picture>
-                        <p class="wds-type-body-regular-s image-disclaimer">${offer?.images?.detail?.disclaimer}</p>
+                        <img alt="${offer?.model?.name}" class="responsive-image image-container classic-offers-images vehicle-image clickable" src="${offer?.images?.detail?.smallStdRes}" tabindex="0">
+                    </picture>
+                    <p class="wds-type-body-regular-s image-disclaimer">${offer?.images?.detail?.disclaimer}</p>
                 </section>
               </div>
               <div class="wds-col-12">
@@ -47,7 +48,7 @@ export default function decorate(block) {
     document.querySelectorAll('a.wds-type-subtitle-m.classic-offer-cta').forEach((eachElem) => eachElem.addEventListener('click', (evt) => {
       const dataIndex = parseInt(evt.currentTarget.getAttribute('data-index'), 10);
       console.log('dataIndex: ', dataIndex);
-      modal.show({});
+      modal.show(offers?.allOffers?.[dataIndex] || {});
     }));
   }).catch((error) => {
     block.innerHTML = '';

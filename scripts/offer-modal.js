@@ -12,46 +12,41 @@ const getModal = (data) => `<div id="DIV_1">
                                 <div id="DIV_11">
                                     <div id="DIV_12">
                                         <h2 id="H2_13">
-                                            Personal Contract Purchase
+                                            ${data?.offerType}
                                         </h2>
                                     </div>
                                     <div id="DIV_14">
                                         <h4 id="H4_15">
-                                            £2,500 DEPOSIT CONTRIBUTION
+                                            ${data?.title?.strapline}
                                         </h4>
                                         <h3 id="H3_16">
-                                            0.00% APR REPRESENTATIVE PCP*
+                                            ${data?.title?.headline}
                                         </h3>
                                         <div id="DIV_17">
                                             <h5 id="H5_18">
-                                                NISSAN LEAF
+                                                ${data?.model?.name}
                                             </h5>
                                             <h5 id="H5_19">
-                                                LEAF 39kWh 150PS Tekna
+                                                ${data?.applicability}
                                             </h5>
                                         </div>
                                     </div>
                                     <div id="DIV_20">
                                         <section id="SECTION_21">
-                                            <picture id="PICTURE_22">
-                                                <source id="SOURCE_23" />
-                                                <source id="SOURCE_24" />
-                                                <source id="SOURCE_25" /><img alt="NISSAN LEAF" src="https://www-europe.nissan-cdn.net/content/dam/Nissan/gb/vehicles/packshots/2023/leaf/LEAF.jpg.ximg.s_12_m.smart.png" id="IMG_26" />
+                                            <picture id="PICTURE_22" alt="${data?.model?.name}">
+                                                <source id="SOURCE_23" media="(min-width: 1440px)" srcset="${data?.images?.detail?.largeStdRes}, ${data?.images?.detail?.largeHiRes}">
+                                                <source id="SOURCE_24" media="(min-width: 768px)" srcset="${data?.images?.detail?.mediumStdRes}, ${data?.images?.detail?.mediumHiRes}">
+                                                <source id="SOURCE_25" srcset="${data?.images?.detail?.smallStdRes}, ${data?.images?.detail?.smallHiRes}">
+                                                <img id="IMG_26" alt="${data?.model?.name}" src="${data?.images?.detail?.smallStdRes}" tabindex="0">
                                             </picture>
+                                            
                                             <p id="P_27">
-                                                Image shown for guidance purpose only.
+                                                ${data?.images?.detail?.disclaimer}
                                             </p>
                                         </section>
                                     </div>
                                     <div id="DIV_28">
-\t\t\t\t\t\t\t\t\t\t<pre id="PRE_29">- Zap Map Premium 3 Year Free Subscription
- - ProPILOT Assist with Traffic Jam Pilot &amp; Lane Keep Assist
- - Bose® Premium Audio System
-
-The Nissan Intelligent Mobility features in the 100% Electric Nissan LEAF will change how you move forever, with technology that makes you feel connected, confident, and excited.
-
-To find out more, and to get a personalised quote, please contact your local dealer.
-\t\t\t\t\t\t\t\t\t\t</pre>
+                                        <pre id="PRE_29">${data?.details}</pre>
                                     </div>
                                 </div>
                             </div>
@@ -60,7 +55,7 @@ To find out more, and to get a personalised quote, please contact your local dea
                             <div id="DIV_31">
                                 <div id="DIV_32">
                                     <div id="DIV_33">
-                                        0.00% APR Representative Example for LEAF 39kWh 150PS Tekna
+                                        ${data?.table?.details}
                                     </div>
                                 </div>
                                 <div id="DIV_34">
@@ -70,98 +65,98 @@ To find out more, and to get a personalised quote, please contact your local dea
                                                 <tbody id="TBODY_38">
                                                 <tr id="TR_39">
                                                     <td id="TD_40">
-                                                        On The Road Price
+                                                        ${data?.table?.data?.[0]?.label}
                                                     </td>
                                                     <td id="TD_41">
-                                                        £32,290
+                                                        ${data?.table?.data?.[0]?.value}
                                                     </td>
                                                 </tr>
                                                 <tr id="TR_42">
                                                     <td id="TD_43">
-                                                        Term
+                                                        ${data?.table?.data?.[1]?.label}
                                                     </td>
                                                     <td id="TD_44">
-                                                        49 Months
+                                                        ${data?.table?.data?.[1]?.value}
                                                     </td>
                                                 </tr>
                                                 <tr id="TR_45">
                                                     <td id="TD_46">
-                                                        Customer Deposit
+                                                        ${data?.table?.data?.[2]?.label}
                                                     </td>
                                                     <td id="TD_47">
-                                                        £5,000
+                                                        ${data?.table?.data?.[2]?.value}
                                                     </td>
                                                 </tr>
                                                 <tr id="TR_48">
                                                     <td id="TD_49">
-                                                        Nissan Deposit Contribution
+                                                        ${data?.table?.data?.[3]?.label}
                                                     </td>
                                                     <td id="TD_50">
-                                                        £2,500
+                                                        ${data?.table?.data?.[3]?.value}
                                                     </td>
                                                 </tr>
                                                 <tr id="TR_51">
                                                     <td id="TD_52">
-                                                        Total Deposit (Customer Deposit + Nissan Deposit Contribution)
+                                                        ${data?.table?.data?.[4]?.label}
                                                     </td>
                                                     <td id="TD_53">
-                                                        £7,500
+                                                        ${data?.table?.data?.[4]?.value}
                                                     </td>
                                                 </tr>
                                                 <tr id="TR_54">
                                                     <td id="TD_55">
-                                                        48 Monthly Payments of
+                                                        ${data?.table?.data?.[5]?.label}
                                                     </td>
                                                     <td id="TD_56">
-                                                        £302
+                                                        ${data?.table?.data?.[5]?.value}
                                                     </td>
                                                 </tr>
                                                 <tr id="TR_57">
                                                     <td id="TD_58">
-                                                        Representative APR
+                                                        x${data?.table?.data?.[6]?.label}
                                                     </td>
                                                     <td id="TD_59">
-                                                        0.00% APR Representative
+                                                        ${data?.table?.data?.[6]?.value}
                                                     </td>
                                                 </tr>
                                                 <tr id="TR_60">
                                                     <td id="TD_61">
-                                                        Rate Of Interest
+                                                        ${data?.table?.data?.[7]?.label}
                                                     </td>
                                                     <td id="TD_62">
-                                                        0.00%
+                                                        ${data?.table?.data?.[7]?.value}
                                                     </td>
                                                 </tr>
                                                 <tr id="TR_63">
                                                     <td id="TD_64">
-                                                        Mileage PA
+                                                        ${data?.table?.data?.[8]?.label}
                                                     </td>
                                                     <td id="TD_65">
-                                                        8,000
+                                                        ${data?.table?.data?.[8]?.value}
                                                     </td>
                                                 </tr>
                                                 <tr id="TR_66">
                                                     <td id="TD_67">
-                                                        Optional Final Payment
+                                                        ${data?.table?.data?.[9]?.label}
                                                     </td>
                                                     <td id="TD_68">
-                                                        £10,303
+                                                        ${data?.table?.data?.[9]?.value}
                                                     </td>
                                                 </tr>
                                                 <tr id="TR_69">
                                                     <td id="TD_70">
-                                                        Total Amount Of Credit
+                                                        ${data?.table?.data?.[10]?.label}
                                                     </td>
                                                     <td id="TD_71">
-                                                        £24,790
+                                                        ${data?.table?.data?.[10]?.value}
                                                     </td>
                                                 </tr>
                                                 <tr id="TR_72">
                                                     <td id="TD_73">
-                                                        Total Amount Payable
+                                                        ${data?.table?.data?.[11]?.label}
                                                     </td>
                                                     <td id="TD_74">
-                                                        £32,290
+                                                        ${data?.table?.data?.[11]?.value}
                                                     </td>
                                                 </tr>
                                                 </tbody>
@@ -180,13 +175,13 @@ To find out more, and to get a personalised quote, please contact your local dea
                                         </h2>
                                         <ul id="UL_80">
                                             <li id="LI_81">
-                                                <a href="https://www.nissan.co.uk/vehicles/new-vehicles/cta=RCI-FC&amp;model=leaf&amp;vehicleCapCode=NILE00TEK5HE%20A%20%202&amp;price=32290" id="A_82">FINANCE CALCULATOR</a>
+                                                <a href="${data?.additionalCTAs?.[0]?.url}" target="_blank"" id="A_82">${data?.additionalCTAs?.[0]?.label}</a>
                                             </li>
                                             <li id="LI_83">
-                                                <a href="https://callback.nissan.co.uk/request-a-quote?model=leaf" id="A_84">REQUEST A QUOTE</a>
+                                                <a href="${data?.additionalCTAs?.[1]?.url}" target="_blank" id="A_84">${data?.additionalCTAs?.[1]?.label}</a>
                                             </li>
                                             <li id="LI_85">
-                                                <a href="https://tools.nissan.co.uk/value-my-car" id="A_86">VALUE MY CAR</a>
+                                                <a href="${data?.CTA?.url}" target="_blank" id="A_86">${data?.CTA?.label}</a>
                                             </li>
                                         </ul>
                                     </div>
@@ -197,10 +192,10 @@ To find out more, and to get a personalised quote, please contact your local dea
                             <div id="DIV_88">
                                 <div id="DIV_89">
                                     <h4 id="H4_90">
-                                        Terms &amp; Conditions
+                                        ${data?.legals?.main?.headline}
                                     </h4>
                                     <p id="P_91">
-                                        Offer valid from 1st May 2024 until 1st July 2024 at participating dealers only and subject to vehicle availability. To be eligible, vehicles must be ordered by 1st July 2024 and registered by 30th September 2024. Finance provided by Nissan Financial Services, Rivers Office Park, Denham Way, Maple Cross, Rickmansworth, WD3 9YS. Subject to status. Guarantees and indemnities may be required. You must be at least 18 and a UK resident (excluding the Channel Islands). NISSAN DEPOSIT CONTRIBUTION OF £2,500 IS ONLY AVAILABLE WHEN TAKEN ON 0% APR REPRESENTATIVE PCP NISSAN FINANCIAL SERVICES PRODUCT AND IS AVAILABLE ON All GRADES . Offer based on 8,000 miles pa, excess mileage 8p per mile. Offers not available in conjunction with any schemes or other offers. Vehicle price includes first registration fee and 12 months’ road fund licence. Nissan reserves the right to amend or withdraw offers at any time without prior notice, including in the case of any events or circumstances beyond Nissan’s reasonable control. Terms and conditions apply. Please refer to your local authorised Nissan dealer for further information and exact specifications. Your Nissan dealer is a credit broker and not a lender and can introduce you to a limited number of lenders and their finance products. You must decide whether the finance product is right for you. Lenders will typically pay commission to your Nissan dealer, being either a fixed fee or a fixed percentage of the amount you borrow. Commission rates between lenders could vary, but the commission received by your Nissan dealer does not influence the interest rate you will pay.
+                                        ${data?.legals?.main?.details}
                                     </p>
                                 </div>
                             </div>
@@ -214,6 +209,7 @@ class Modal {
   constructor() {}
 
   show(data) {
+    console.log('data: ', data);
     this.modalContainer = document.getElementById('modal-container');
     const modal = document.createElement('div');
 
