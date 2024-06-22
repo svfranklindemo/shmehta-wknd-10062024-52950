@@ -143,9 +143,17 @@ function setActiveTab() {
  */
 export default async function decorate(block) {
   // load nav as fragment
-  const prefix = getMetadata('locale');
-  const navPath = prefix ? `/${prefix}/nav` : '/nav';
+  const locale = getMetadata('locale');
+  const navPath = locale ? `/${locale}/nav` : '/nav';
   const fragment = await loadFragment(navPath);
+  let languages = null;
+
+  try {
+    const response = await fetch('/languages.json');
+    languages = await response.json();
+  } catch (e) {
+    // error handling
+  }
 
   // decorate nav DOM
   const nav = document.createElement('nav');
@@ -184,7 +192,36 @@ export default async function decorate(block) {
     });
   }
 
-  // const navTools = nav.querySelector('.nav-tools');
+  if (languages?.data) {
+    // Create the select element
+    const languageSelector = document.createElement('select');
+    languageSelector.id = 'language-selector';
+
+    languages.data.forEach((language) => {
+      const option = document.createElement('option');
+      option.value = language.url;
+      option.textContent = language.locale;
+      languageSelector.appendChild(option);
+    });
+
+    // Set the default value based on the locale meta tag
+    const defaultLanguage = languages.data.find((lang) => lang.locale.toLowerCase() === locale.toLowerCase());
+    if (defaultLanguage) {
+      languageSelector.value = defaultLanguage.url;
+    }
+
+    // Add event listener to handle change event
+    languageSelector.addEventListener('change', (evt) => {
+      const selectedUrl = languageSelector.value;
+      window.location.href = selectedUrl;
+    });
+
+    const navTools = nav.querySelector('.nav-tools');
+    const liElem = document.createElement('li');
+    liElem.append(languageSelector);
+    navTools.querySelector('ul').prepend(liElem);
+  }
+
   /*
   /!** Mini Cart *!/
   const minicart = document.createRange().createContextualFragment(`

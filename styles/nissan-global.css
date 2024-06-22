@@ -422,3 +422,10 @@ main .section.nissan-faq-block {
 body.no-scroll {
     overflow: hidden;
 }
+
+#language-selector {
+    outline: none;
+    border: none;
+    background: transparent;
+    color: #ffffff;
+}
