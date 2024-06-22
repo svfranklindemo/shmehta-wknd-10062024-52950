@@ -184,7 +184,7 @@ export default async function decorate(block) {
     });
   }
 
-  const navTools = nav.querySelector('.nav-tools');
+  // const navTools = nav.querySelector('.nav-tools');
   /*
   /!** Mini Cart *!/
   const minicart = document.createRange().createContextualFragment(`
