@@ -22,11 +22,9 @@ header .header-nav-wrapper {
   header .header-nav-wrapper {
     padding: 0;
     box-sizing: border-box;
-    /*border:5px solid #00f;*/
 
     & nav {
-      /*padding: 20px 8px;*/
-      /*border:5px solid #f00;*/
+      padding: 20px 8px;
     }
   }
 }
@@ -231,6 +229,12 @@ header nav .nav-tools ul{
   padding-left: 0;
   font: var(--type-body-1-default-font);
   letter-spacing: var(--type-body-1-default-letter-spacing);
+
+  @media (width < 768px) {
+    display: flex;
+    gap: 20px;
+    margin: 0;
+  }
 }
 
 header nav .nav-sections ul > li {
@@ -383,6 +387,9 @@ header nav .nav-tools {
   gap: 10px;
   height: 100%;
   margin-left: 2em;
+  @media (width < 768px) {
+    margin: 0 2em;
+  }
 }
 
 header nav .nav-tools .minicart-wrapper {
