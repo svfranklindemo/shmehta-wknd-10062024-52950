@@ -229,13 +229,9 @@ header nav .nav-tools ul{
   padding-left: 0;
   font: var(--type-body-1-default-font);
   letter-spacing: var(--type-body-1-default-letter-spacing);
-
-  @media (width < 768px) {
-    display: flex;
-    gap: 20px;
-    margin: 0;
-  }
 }
+
+
 
 header nav .nav-sections ul > li {
   font-weight: 700;
@@ -541,6 +537,12 @@ header .nav-search-input .search_autocomplete .popover-container {
     left: unset;
     right: 0;
     top: 40px;
+  }
+
+  header nav .nav-tools ul{
+    display: flex;
+    gap: 20px;
+    margin: 0;
   }
 }
 
