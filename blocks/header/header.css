@@ -540,6 +540,11 @@ header .nav-search-input .search_autocomplete .popover-container {
       }
     }
 
+    .nav-sections {
+      padding-left: 5%;
+      padding-right: 5%;
+    }
+
     .nav-tools ul {
       display: flex;
       gap: 20px;
