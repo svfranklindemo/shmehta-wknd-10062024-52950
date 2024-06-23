@@ -535,7 +535,9 @@ header .nav-search-input .search_autocomplete .popover-container {
 @media (width < 768px) {
   header nav {
     &[aria-expanded='true'] {
-      .nissan-logo .icon-nissan-next-logo img {
+      height: 100vh;
+
+      & .nissan-logo .icon-nissan-next-logo img {
         filter: invert(1);
       }
     }
