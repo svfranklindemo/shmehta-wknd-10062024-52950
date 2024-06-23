@@ -539,10 +539,7 @@ header .nav-search-input .search_autocomplete .popover-container {
         filter: invert(1);
       }
     }
-    .nav-sections ul {
-      padding-left: 5%;
-      padding-right: 5%;
-    }
+
     .nav-tools ul {
       display: flex;
       gap: 20px;
