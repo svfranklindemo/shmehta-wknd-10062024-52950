@@ -12,7 +12,7 @@ export default function decorate(block) {
     const elOffers = allOffers.map((offer, index) => {
       const divElement = document.createElement('div');
       divElement.className = 'offer-container';
-      divElement.innerHTML = `<div class="top-section wds-row" style="height: 96px;">
+      divElement.innerHTML = `<div class="top-section wds-row">
               <div class="wds-col-12 wds-col-md-12">
                   <h4 class="wds-type-subtitle-m wds-margin-bottom-8 offer-detail-title-strapline">${offer?.title?.strapline}</h4>
                   <h3 class="wds-type-display-s offer-detail-title-headline">${offer?.title?.headline}</h3>

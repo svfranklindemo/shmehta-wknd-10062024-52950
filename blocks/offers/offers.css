@@ -6,11 +6,19 @@
 
         align-items: center;
 
+        @media (width < 768px) {
+            flex-direction: column;
+        }
+
         & > .offer-container {
             flex: 1;
 
             & .top-section {
                 min-height: 108px;
+
+                @media (width < 768px) {
+                    min-height: unset;
+                }
             }
             & h4 {
                 font-family: "Nissan Bold", Verdana, Arial, sans-serif;
@@ -51,6 +59,10 @@
 
                 & > h5{
                     display: inline;
+
+                    @media (width < 768px) {
+                        display: block;
+                    }
                 }
             }
         }
