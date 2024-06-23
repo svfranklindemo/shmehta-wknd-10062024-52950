@@ -195,15 +195,15 @@ export default async function decorate(block) {
     });
 
     // Set the default value based on the locale meta tag
+    // eslint-disable-next-line max-len
     const defaultLanguage = languages.data.find((lang) => lang.locale.toLowerCase() === locale.toLowerCase());
     if (defaultLanguage) {
       languageSelector.value = defaultLanguage.url;
     }
 
     // Add event listener to handle change event
-    languageSelector.addEventListener('change', (evt) => {
-      const selectedUrl = languageSelector.value;
-      window.location.href = selectedUrl;
+    languageSelector.addEventListener('change', () => {
+      window.location.href = languageSelector.value;
     });
 
     const navTools = nav.querySelector('.nav-tools');
