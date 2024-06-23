@@ -61,6 +61,7 @@ header nav[aria-expanded='true'] {
     'tools tools' var(--nav-height) / auto 1fr;
   overflow-y: auto;
   min-height: 96vh;
+
   @media (width < 768px) {
     background: #fff;
   }
@@ -527,11 +528,26 @@ header .nav-search-input .search_autocomplete .popover-container {
   .cart-mini-cart:not(:has(.cart-empty-cart)) {
     max-height: calc(100vh - var(--nav-height));
   }
-  
-  header nav .nav-tools ul{
-    display: flex;
-    gap: 20px;
-    margin: 0;
+
+
+}
+
+@media (width < 768px) {
+  header nav {
+    &[aria-expanded='true'] {
+      .nissan-logo .icon-nissan-next-logo img {
+        filter: invert(1);
+      }
+    }
+    .nav-sections ul {
+      padding-left: 5%;
+      padding-right: 5%;
+    }
+    .nav-tools ul {
+      display: flex;
+      gap: 20px;
+      margin: 0;
+    }
   }
 }
 
