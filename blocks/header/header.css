@@ -21,6 +21,13 @@ header .header-nav-wrapper {
 @media (width < 768px) {
   header .header-nav-wrapper {
     padding: 0;
+    box-sizing: border-box;
+    /*border:5px solid #00f;*/
+
+    & nav {
+      /*padding: 20px 8px;*/
+      /*border:5px solid #f00;*/
+    }
   }
 }
 
@@ -34,7 +41,7 @@ header nav {
   box-sizing: border-box;
   display: grid;
   grid-template:
-    'hamburger brand tools' var(--nav-height)
+    'brand tools hamburger' var(--nav-height)
     'sections sections sections' 1fr / auto 1fr auto;
   align-items: flex-start;
   margin: auto;
@@ -51,11 +58,14 @@ header nav {
 
 header nav[aria-expanded='true'] {
   grid-template:
-    'hamburger brand' var(--nav-height)
+    'brand hamburger' var(--nav-height)
     'sections sections' 1fr
     'tools tools' var(--nav-height) / auto 1fr;
   overflow-y: auto;
   min-height: 96vh;
+  @media (width < 768px) {
+    background: #fff;
+  }
 }
 
 @media (width >= 600px) {
@@ -112,6 +122,7 @@ header nav .nav-hamburger {
   height: 22px;
   display: flex;
   align-items: center;
+  justify-self: flex-end;
 }
 
 header nav .nav-hamburger button {

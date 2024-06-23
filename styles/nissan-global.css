@@ -87,6 +87,10 @@ header nav .section > div {
         background: linear-gradient(0deg, #000, #000 68%, rgba(0, 0, 0, 0.0001));
         color: #fff;
 
+        @media (width < 768px) {
+            display: none;
+        }
+
         & h1 {
             grid-area: price;
             font-size: 1.5em;
@@ -161,6 +165,11 @@ footer .footer {
             display: flex;
             flex-direction: row;
             align-items: start;
+
+            @media (width < 768px) {
+                flex-direction: column;
+            }
+
         }
 
         & h2 {
@@ -223,6 +232,10 @@ footer .footer {
 
             display: flex;
             gap: 15px;
+
+            @media (width < 768px) {
+                flex-direction: column;
+            }
 
             & > li {
                 font-weight: lighter;
@@ -442,4 +455,8 @@ body.no-scroll {
     border: none;
     background: transparent;
     color: #ffffff;
+}
+
+@media (width < 768px) {
+
 }
