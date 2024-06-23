@@ -49,6 +49,13 @@ header nav .section > div {
         flex-direction: column;
         justify-content: space-between;
 
+        @media (width < 768px) {
+
+            left: 0;
+            transform: unset;
+            bottom: 0;
+        }
+
         & h3 {
             margin: 70px 0 0 85px;
 
@@ -71,6 +78,10 @@ header nav .section > div {
             min-height: 200px;
             font-size: var(--body-font-size-xs);
             background: linear-gradient(0deg, #000, #000 68%, rgba(0, 0, 0, 0.0001));
+            @media (width < 768px) {
+                padding-right: 20px;
+                padding-left: 20px;
+            }
         }
     }
 }
@@ -95,7 +106,7 @@ header nav .section > div {
         @media (width < 768px) {
             display: block;
 
-            
+
             left: 0;
             transform: unset;
             bottom: 0;
@@ -468,5 +479,6 @@ body.no-scroll {
 }
 
 @media (width < 768px) {
-
 }
+
+
