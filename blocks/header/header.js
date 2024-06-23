@@ -1,13 +1,3 @@
-/* eslint-disable import/no-unresolved */
-/* eslint-disable import/no-extraneous-dependencies */
-// Drop-in Providers
-// import { render as cartProvider } from '@dropins/storefront-cart/render.js';
-
-// Drop-in Containers
-// import MiniCart from '@dropins/storefront-cart/containers/MiniCart.js';
-
-// Drop-in Tools
-// import { events } from '@dropins/tools/event-bus.js';
 import { getMetadata } from '../../scripts/aem.js';
 import { loadFragment } from '../fragment/fragment.js';
 
@@ -222,92 +212,6 @@ export default async function decorate(block) {
     navTools.querySelector('ul').prepend(liElem);
   }
 
-  /*
-  /!** Mini Cart *!/
-  const minicart = document.createRange().createContextualFragment(`
-    <div class="minicart-wrapper">
-      <button type="button" class="button nav-cart-button"></button>
-      <div class="minicart-panel nav-panel"></div>
-    </div>
-  `);
-
-  navTools.append(minicart);
-
-  const minicartPanel = navTools.querySelector('.minicart-panel');
-
-  const cartButton = navTools.querySelector('.nav-cart-button');
-  cartButton.setAttribute('aria-label', 'Cart');
-
-  async function toggleMiniCart(state) {
-    const show = state ?? !minicartPanel.classList.contains('nav-panel--show');
-
-    if (show) {
-      await cartProvider.render(MiniCart, {
-        routeEmptyCartCTA: () => '/',
-        routeProduct: (product) => `/products/${product.url.urlKey}/${product.sku}`,
-        routeCart: () => '/cart',
-        routeCheckout: () => '/checkout',
-      })(minicartPanel);
-    } else {
-      minicartPanel.innerHTML = '';
-    }
-
-    minicartPanel.classList.toggle('nav-panel--show', show);
-  }
-
-  cartButton.addEventListener('click', () => toggleMiniCart());
-
-  // Cart Item Counter
-  events.on('cart/data', (data) => {
-    if (data?.totalQuantity) {
-      cartButton.setAttribute('data-count', data.totalQuantity);
-    } else {
-      cartButton.removeAttribute('data-count');
-    }
-  }, { eager: true });
-
-  // Search
-  const search = document.createRange().createContextualFragment(`
-  <div class="search-wrapper">
-    <button type="button" class="button nav-search-button">Search</button>
-    <div class="nav-search-input nav-search-panel nav-panel hidden">
-      <form id="search_mini_form" action="/search" method="GET">
-        <input id="search" type="search" name="q" placeholder="Search" />
-        <div id="search_autocomplete" class="search-autocomplete"></div>
-      </form>
-    </div>
-  </div>
-  `);
-
-  navTools.append(search);
-
-  const searchPanel = navTools.querySelector('.nav-search-panel');
-  const searchButton = navTools.querySelector('.nav-search-button');
-  const searchInput = searchPanel.querySelector('input');
-
-  function toggleSearch(state) {
-    const show = state ?? !searchPanel.classList.contains('nav-panel--show');
-    searchPanel.classList.toggle('nav-panel--show', show);
-    if (show) searchInput.focus();
-  }
-
-  navTools.querySelector('.nav-search-button').addEventListener('click', async () => {
-    await import('./searchbar.js');
-    document.querySelector('header .nav-search-input').classList.toggle('hidden');
-    toggleSearch();
-  });
-
-  // Close panels when clicking outside
-  document.addEventListener('click', (e) => {
-    if (!minicartPanel.contains(e.target) && !cartButton.contains(e.target)) {
-      toggleMiniCart(false);
-    }
-
-    if (!searchPanel.contains(e.target) && !searchButton.contains(e.target)) {
-      toggleSearch(false);
-    }
-  });
-  */
   // hamburger for mobile
   const hamburger = document.createElement('div');
   hamburger.classList.add('nav-hamburger');
