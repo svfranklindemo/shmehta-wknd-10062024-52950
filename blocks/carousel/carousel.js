@@ -76,16 +76,9 @@ function createSlide(row, slideIndex, carouselId) {
   slide.setAttribute('id', `carousel-${carouselId}-slide-${slideIndex}`);
   slide.classList.add('carousel-slide');
 
-  row.querySelectorAll(':scope > div').forEach((column) => {
-    const isImage = column.querySelector('picture');
-    column.classList.add(`carousel-slide-${isImage ? 'image' : 'content'}`);
+  row.querySelectorAll(':scope > div').forEach((column, colIdx) => {
+    column.classList.add(`carousel-slide-${colIdx === 0 ? 'image' : 'content'}`);
     slide.append(column);
-
-    if (!isImage) {
-      const link = column.querySelector('.button-container > a');
-      link.classList.remove('button');
-      link.classList.add('button-primary');
-    }
   });
 
   const labeledBy = slide.querySelector('h1, h2, h3, h4, h5, h6');

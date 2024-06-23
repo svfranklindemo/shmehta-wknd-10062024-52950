@@ -9,8 +9,6 @@ footer {
 footer .footer {
   max-width: var(--large-grid-layout);
   margin: auto;
-  height: 19vh;
-  padding: 4rem 0;
 }
 
 @media (width <= 900px) {
@@ -18,7 +16,6 @@ footer .footer {
     padding: 1rem 0;
   }
 }
-
 
 footer .footer p {
   margin: 0;

@@ -1,9 +1,3 @@
-.carousel-container {
-  max-width: var(--med-grid-layout);
-  padding: 0 15px;
-  margin: 0 auto;
-}
-
 .carousel .carousel-slides-container {
   position: relative;
 }
@@ -20,7 +14,6 @@
   scroll-behavior: smooth;
   scroll-snap-type: x mandatory;
   overflow: scroll clip;
-  min-height: 360px;
 }
 
 .carousel .carousel-slides::-webkit-scrollbar {
@@ -31,8 +24,12 @@
   flex: 0 0 100%;
   scroll-snap-align: start;
   display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
   position: relative;
   width: 100%;
+  min-height: min(40rem, calc(100svh - var(--nav-height)));
 }
 
 .carousel .carousel-slide:has(.carousel-slide-content[data-align="center"]) {
@@ -43,31 +40,9 @@
   align-items: flex-end;
 }
 
-.carousel .carousel-slide-image {
-  width: 65%;
-}
-
-@media (width <= 768px) {
-  .carousel .carousel-slide-image {
-    width: unset;
-  }
-}
-
-.carousel .carousel-slide .carousel-slide-content {
-  width: 35%;
-  z-index: 1;
-  padding: 2.5rem;
-  color: white;
-  background-color: var(--color-neutral-200);
-  position: relative;
-  display: flex;
-  flex-direction: column;
-}
-
-@media (width <= 768px) {
-  .carousel .carousel-slide .carousel-slide-content {
-    width: unset;
-  }
+.carousel .carousel-slide .carousel-slide-image picture {
+  position: absolute;
+  inset: 0;
 }
 
 .carousel .carousel-slide .carousel-slide-image picture > img {
@@ -76,33 +51,14 @@
   object-fit: cover;
 }
 
-.carousel .carousel-slide .carousel-slide-content h2 {
-  font-size: var(--heading-font-size-s);
-  font-family: var(--heading-font-family);
-  color: var(--color-black-200);
-  line-height: normal;
-  margin: 0;
-}
-
-.carousel .carousel-slide .carousel-slide-content p {
-  margin: 1rem 0;
-  color: var(--color-black-100);
-  font-size: var(--body-font-size-xs);
-  line-height: 16px;
-}
-
-.carousel .carousel-slide .carousel-slide-content p:first-of-type {
-  font-size: var(--body-font-size-s);
-  line-height: 20px;
-  margin-top: 3rem;
-}
-
-.carousel .carousel-slide .carousel-slide-content h2::after {
-  border-bottom: 2px solid var(--color-brand-500);
-  content: "";
-  display: block;
-  padding-top: 8px;
-  width: 90px;
+.carousel .carousel-slide .carousel-slide-content {
+  z-index: 1;
+  padding: 1rem;
+  margin: 1.5rem 3rem;
+  color: white;
+  background-color: rgba(0 0 0 / 50%);
+  position: relative;
+  width: var(--slide-content-width, auto);
 }
 
 .carousel .carousel-slide-indicators {
@@ -112,8 +68,8 @@
 }
 
 .carousel .carousel-slide-indicator button {
-  width: 8px;
-  height: 8px;
+  width: 1rem;
+  height: 1rem;
   padding: 0;
   border-radius: 1rem;
   background-color: rgba(0 0 0 / 25%);
@@ -143,36 +99,28 @@
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  left: -2.5rem;
-  right: -2.5rem;
+  left: 0.5rem;
+  right: 0.5rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  z-index: 2;
-}
-
-@media (width <= 768px) {
-  .carousel .carousel-navigation-buttons {
-    left: -2rem;
-    right: -2rem;
-  }
+  z-index: 1;
 }
 
 /* stylelint-disable-next-line no-descending-specificity */
 .carousel .carousel-navigation-buttons button {
-  border-radius: 0;
+  border-radius: 8px;
   margin: 0;
   padding: 0;
-  width: 40px;
-  height: 40px;
+  width: 2rem;
+  height: 2rem;
   position: relative;
-  background-color: var(--color-black-100);
+  background-color: rgba(0 0 0 / 25%);
 }
 
 .carousel .carousel-navigation-buttons button:hover,
 .carousel .carousel-navigation-buttons button:focus-visible {
   background-color: rgba(0 0 0 / 80%);
-  cursor: pointer;
 }
 
 .carousel .carousel-navigation-buttons button::after {
@@ -181,8 +129,8 @@
   border: 3px white solid;
   border-bottom: 0;
   border-left: 0;
-  height: 6px;
-  width: 6px;
+  height: 0.75rem;
+  width: 0.75rem;
   position: absolute;
   top: 50%;
   left: calc(50% + 3px);
@@ -194,7 +142,28 @@
   left: calc(50% - 3px);
 }
 
-@media (width <= 768px) {
+@media (width >= 600px) {
+  .carousel .carousel-navigation-buttons {
+    left: 1rem;
+    right: 1rem;
+  }
+
+  .carousel .carousel-navigation-buttons button {
+    width: 3rem;
+    height: 3rem;
+  }
+
+  .carousel .carousel-navigation-buttons button::after {
+    width: 1rem;
+    height: 1rem;
+  }
+
+  .carousel .carousel-slide .carousel-slide-content {
+    --slide-content-width: 50%;
+
+    margin: 2.5rem 5rem;
+  }
+
   .carousel .carousel-slide .carousel-slide-content[data-align="justify"] {
     --slide-content-width: auto;
   }

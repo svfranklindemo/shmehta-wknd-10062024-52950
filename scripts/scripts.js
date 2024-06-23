@@ -18,7 +18,8 @@ import {
   toClassName,
   waitForLCP,
 } from './aem.js';
-import initializeDropins from './dropins.js';
+
+// import initializeDropins from './dropins.js';
 
 // Define an execution context
 const pluginContext = {
@@ -83,6 +84,18 @@ async function loadFonts() {
   } catch (e) {
     // do nothing
   }
+}
+
+function autolinkModals(element) {
+  element.addEventListener('click', async (e) => {
+    const origin = e.target.closest('a');
+
+    if (origin && origin.href && origin.href.includes('/modals/')) {
+      e.preventDefault();
+      const { openModal } = await import(`${window.hlx.codeBasePath}/blocks/modal/modal.js`);
+      openModal(origin.href);
+    }
+  });
 }
 
 const tabElementMap = {};
@@ -210,7 +223,7 @@ async function decorateTemplates(main) {
  */
 async function loadEager(doc) {
   document.documentElement.lang = 'en';
-  initializeDropins();
+  // initializeDropins();
   decorateTemplateAndTheme();
 
   if (getMetadata('breadcrumbs').toLowerCase() === 'true') {
